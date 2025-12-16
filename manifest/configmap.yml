@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: nginx-redirects
+  namespace: nginx-redirects
+data:
+  index.html: |
+    <html>
+    <body></body>
+    </html>

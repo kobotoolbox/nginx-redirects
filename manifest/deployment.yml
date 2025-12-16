@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-redirects
+  namespace: nginx-redirects
+  labels:
+    app: nginx-redirects
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx-redirects
+  template:
+    metadata:
+      labels:
+        app: nginx-redirects
+    spec:
+      containers:
+      - name: nginx-redirects-container
+        image: nginx:stable-alpine
+        ports:
+        - containerPort: 80
+        volumeMounts:
+        - name: nginx-config-volume
+          mountPath: /etc/nginx/nginx.conf
+          subPath: nginx.conf
+          readOnly: true
+        - name: nginx-config-volume
+          mountPath: /etc/nginx/index.html
+          subPath: index.html
+          readOnly: true
+      volumes:
+      - name: nginx-config-volume
+        configMap:
+          name: nginx-redirects
+          defaultMode: 0644
