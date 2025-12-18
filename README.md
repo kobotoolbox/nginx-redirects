@@ -1,4 +1,4 @@
-# kobo-redirects
+# nginx-redirects
 
 This repository handles redirection and reverse proxying for some domains:
 
