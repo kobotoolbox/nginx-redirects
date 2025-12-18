@@ -1,4 +1,4 @@
-# kobo-support-docker
+# kobo-redirects
 
 This repository handles redirection and reverse proxying for some domains:
 
@@ -11,7 +11,7 @@ This repository handles redirection and reverse proxying for some domains:
 * forum.kobotoolbox.org: this was the very short-lived original hostname for our Discourse forum. This redirect could probably be removed, but for now, it steers people to https://community.kobotoolbox.org.
 * koboresearch.com: redirected to koboresearch.org
 * koboresearch.org: redirected to kobotoolbox.org
-* kobotoolbox.com: redirected to kobotoolbox.org
+* kobotoolbox.com: requests to https://kobotoolbox.com/anything are redirected to https://www.kobotoolbox.org/anything;
 * eu.kobotoolbox.org: redirected to https://kobo.humanitarianresponse.info
 * kobotoolbox.org: requests to https://kobotoolbox.org/anything are redirected to https://www.kobotoolbox.org/anything;
 * kobo.ngo: requests to the base hostname and `www` sub-domain are redirected to https://www.kobotoolbox.org;
