@@ -1,0 +1,123 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: redirect-ingress
+  namespace: nginx-redirects
+  annotations:
+    kubernetes.io/ingress.class: alb
+    alb.ingress.kubernetes.io/scheme: internet-facing 
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/load-balancer-name: redirects
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP":80}, {"HTTPS":443}]'
+    alb.ingress.kubernetes.io/ssl-redirect: '443'
+spec:
+  rules:
+  - host: "kobotoolbox.org"
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: nginx-redirects
+              port: 
+                number: 80
+      
+  - host: "*.kobotoolbox.org"
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: nginx-redirects
+              port: 
+                number: 80
+
+  - host: "koboresearch.org"
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: nginx-redirects
+              port: 
+                number: 80
+
+  - host: "*.koboresearch.org"
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: nginx-redirects
+              port: 
+                number: 80
+
+  - host: "koboresearch.com"
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: nginx-redirects
+              port: 
+                number: 80
+
+  - host: "*.koboresearch.com"
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: nginx-redirects
+              port: 
+                number: 80
+
+  - host: "kobotoolbox.com"
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: nginx-redirects
+              port: 
+                number: 80
+
+  - host: "*.kobotoolbox.com"
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: nginx-redirects
+              port: 
+                number: 80    
+
+  - host: "*.kobotoolbox.ai"
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: nginx-redirects
+              port:
+                number: 80
+
+  - host: "kobotoolbox.ai"
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: nginx-redirects
+              port:
+                number: 80

@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: nginx-redirects
+  namespace: nginx-redirects
+  labels:
+    app: nginx-redirects
+spec:
+  type: ClusterIP 
+  selector:
+    app: nginx-redirects
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80

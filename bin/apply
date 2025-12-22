@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+set +eou pipefail
+
+CONTEXT_AND_NAMESPACE="--context arn:aws:eks:us-east-1:917503078660:cluster/kobo -n nginx-redirects"
+kubectl $CONTEXT_AND_NAMESPACE apply -f ./manifest/
+kubectl $CONTEXT_AND_NAMESPACE create configmap nginx-redirects --from-file=nginx.conf=./support_files/nginx.conf --dry-run=client -o yaml | kubectl $CONTEXT_AND_NAMESPACE patch configmap nginx-redirects --type merge --patch-file /dev/stdin
+kubectl $CONTEXT_AND_NAMESPACE rollout restart deployment/nginx-redirects
