@@ -18,6 +18,7 @@ This repository handles redirection and reverse proxying for some domains:
 * kobo.ong: requests to the base hostname and `www` sub-domain are redirected to https://www.kobotoolbox.org;
 * eu.kobotoolbox.org: requests to the base hostname are redirected to https://kobo.humanitarianresponse.info;
 * kobotoolbox.ai - all requests are redirects to https://www.kobotoolbox.org;
+* standup.kbtdev.org - all requests are directed to https://meet.google.com/_meet/vio-vqop-mqh
 
 ## How to use
 Apply changes to the us-east-1 EKS cluster: `./bin/apply`
