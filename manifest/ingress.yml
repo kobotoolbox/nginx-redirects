@@ -121,3 +121,14 @@ spec:
               name: nginx-redirects
               port:
                 number: 80
+
+  - host: "standup.kbtdev.org"
+    http:
+      paths:
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: nginx-redirects
+              port:
+                number: 80
